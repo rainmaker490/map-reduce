@@ -161,17 +161,17 @@ int main(int argc, const char * argv[]) {
     }
     
     for (i=0; i < numberOfThreads; i++){
-        word_node *new_temp;
-        word_node *xx_temp = listOfWords[i].head;
+        word_node *finalReducedList;
+        word_node *rawWordList = listOfWords[i].head;
         if (i != 0){
-            while (xx_temp) {
-                insert(&listOfWords[0], xx_temp->word, xx_temp->wordCount);
-                xx_temp=xx_temp->next;
+            while (rawWordList) {
+                insert(&listOfWords[0], rawWordList->word, rawWordList->wordCount);
+                rawWordList=rawWordList->next;
             }
-            while (xx_temp) {
-                new_temp=xx_temp->next;
-                free(xx_temp);
-                xx_temp=new_temp;
+            while (rawWordList) {
+                finalReducedList=rawWordList->next;
+                free(rawWordList);
+                rawWordList=finalReducedList;
             }
         }
     }
