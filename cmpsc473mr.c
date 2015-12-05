@@ -20,7 +20,7 @@ typedef struct threadArg_struct{
     int threadBufSize;
 } threadArg_struct;
 
-void tostring(char str[], int num){
+void toString(char str[], int num){
     int i, rem, len = 0, n;
     n = num;
     while (n != 0){
@@ -84,7 +84,7 @@ void mapperAndReducer(void *arguments){
     char *x = "Thread";
     char *y = ".txt";
     char *myFile = malloc(1+strlen(x)+strlen(y)+strlen(temp_write));
-    tostring(temp_write, (arg->threadID+1));
+    toString(temp_write, (arg->threadID+1));
     strcpy(myFile, x);
     strcat(myFile, temp_write);
     strcat(myFile, y);
@@ -208,7 +208,7 @@ int main(int argc, const char * argv[]) {
         char *x = "/Users/admin/Desktop/";
         char *y = ".txt";
         char *myFile = malloc(1+strlen(x)+strlen(y)+strlen(temp_write));
-        tostring(temp_write, (numberOfThreads));
+        toString(temp_write, (numberOfThreads));
         strcpy(myFile, x);
         strcat(myFile, temp_write);
         strcat(myFile, y);
