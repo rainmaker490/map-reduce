@@ -97,6 +97,7 @@ void insert(word_list *_list, char *word, int _count){
     pthread_mutex_unlock(&_list->mutex);
 }
 
+/* MARK: Deprecated
 void map_reduce(word_list *shortList, word_list *longList){
     boolean isAllReduced = false;
     word_node *temp,*left,*right;
@@ -157,3 +158,4 @@ void reducer(word_list *lista , word_list *listb){
         map_reduce(lista , listb);
     }
 }
+*/
