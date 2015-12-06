@@ -114,12 +114,12 @@ int main(int argc, const char * argv[]) {
     int space = 32;
     // char *nameOfFile = argv[3];
     char *nameOfFile = (char *)argv[1];
-    long long x = getFileSize(nameOfFile);
-    printf("%lld \n", x);
+    long long sizeOfFile = getFileSize(nameOfFile);
+    printf("%lld \n", sizeOfFile);
     // int bufferSize = 4;
     // int numberOfThreads=atoi(argv[2]);
     int numberOfThreads=atoi(argv[1]);
-    int bufferSize =  atoi(argv[2]);
+    int bufferSize=atoi(argv[2]);
     word_list *listOfWords = calloc(1,sizeof(word_list)*numberOfThreads);
     pthread_t threads[numberOfThreads];
     long long *positions= calloc(1,sizeof(long long *)*(bufferSize +1));;
@@ -128,7 +128,7 @@ int main(int argc, const char * argv[]) {
     positions[0]=0;
     int i = 1;
     for (i=1; i <= numberOfThreads-1; i++){
-        positions[i]=(i)*(x/numberOfThreads);
+        positions[i]=(i)*(sizeOfFile/numberOfThreads);
         fseek(fp, positions[i], SEEK_SET);
         while (fgetc(fp) != space) {
             positions[i]++;
@@ -136,7 +136,7 @@ int main(int argc, const char * argv[]) {
     }
     fclose(fp);
     threadArgs = (threadArg_struct *) malloc(sizeof(threadArg_struct *)*numberOfThreads);
-    positions[numberOfThreads]=x;
+    positions[numberOfThreads]=sizeOfFile;
     /*
     finalList = malloc(sizeof(word_list *));
     pthread_mutex_init(&finalList->mutex, NULL);
