@@ -3,7 +3,7 @@
 * Usage : 
   1. after unzipping, run make within the proj3 folder.
     - running make will remove the old output.txt file
-  2. Running: 
+  2. running: 
     - ./project \<input-file\>  \<number-of-threads\>  \<buffer-size\>
     - the input files are named "input1.txt", 2, or 3
     - the file number go up based off file size.
