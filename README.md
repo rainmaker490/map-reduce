@@ -8,6 +8,9 @@
     - the input files are named "input1.txt", 2, or 3
     - the file number go up based off file size.
     - an output.txt file will be created for you to reference the unique word counts.
+ 
+---
+
 
 * Design and Analysis of MapReduce Implementation :
 
